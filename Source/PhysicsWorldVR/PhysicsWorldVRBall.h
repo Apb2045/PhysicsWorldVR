@@ -9,10 +9,13 @@ UCLASS()
 class PHYSICSWORLDVR_API APhysicsWorldVRBall : public AActor
 {
 	GENERATED_BODY()
+    
+    UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = Ball, meta = (AllowPrivateAccess = "true"))
+    class UStaticMeshComponent * Ball;
 	
 public:	
 	// Sets default values for this actor's properties
-	APhysicsWorldVRBall();
+	APhysicsWorldVRBall(const FObjectInitializer& ObjectInitializer);
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -20,6 +23,9 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-    float RunningTime;	
+    float RunningTime;
+    
+public:
+    FORCEINLINE class UStaticMeshComponent* GetBall() const { return Ball; }
 	
 };

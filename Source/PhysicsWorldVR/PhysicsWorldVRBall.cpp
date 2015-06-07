@@ -5,9 +5,20 @@
 
 
 // Sets default values
-APhysicsWorldVRBall::APhysicsWorldVRBall()
+
+//	APhysicsWorldVRBall(const FObjectInitializer& ObjectInitializer);
+
+APhysicsWorldVRBall::APhysicsWorldVRBall(const FObjectInitializer& ObjectInitializer)
+    :Super(ObjectInitializer)
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+
+    static ConstructorHelpers::FObjectFinder<UStaticMesh> BallMesh(TEXT("/Game/Rolling/Meshes/BallMesh.Ballmesh"));
+    Ball = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("Ball0"));
+    Ball->SetStaticMesh(BallMesh.Object);
+    Ball->BodyInstance.SetCollisionProfileName(UCollisionProfile::PhysicsActor_ProfileName);
+    Ball->SetSimulatePhysics(true);
+    
+    // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 }
@@ -26,10 +37,8 @@ void APhysicsWorldVRBall::Tick( float DeltaTime )
     
     
     FVector NewLocation = GetActorLocation();
-    //float DeltaHeight = (FMath::Sin(RunningTime + DeltaTime) - FMath::Sin(RunningTime));
-    float DeltaHeight = -0.5f*(9.8f)*RunningTime*RunningTime;
-    //NewLocation.Z += DeltaHeight * 20.0f;       //Scale our height by a factor of 20
-    NewLocation.Z += DeltaHeight;
+    float DeltaHeight = (FMath::Sin(RunningTime + DeltaTime) - FMath::Sin(RunningTime));
+    NewLocation.Z += DeltaHeight * 200.0f;       //Scale our height by a factor of 20
     RunningTime += DeltaTime;
     SetActorLocation(NewLocation);
     
