@@ -2,16 +2,16 @@
 
 #pragma once
 
-#include "GameFramework/Pawn.h"
+#include "GameFramework/Actor.h"
 #include "PhysicsWorldVRBall.generated.h"
 
 UCLASS()
-class PHYSICSWORLDVR_API APhysicsWorldVRBall : public APawn
+class PHYSICSWORLDVR_API APhysicsWorldVRBall : public AActor
 {
 	GENERATED_BODY()
-
-public:
-	// Sets default values for this pawn's properties
+	
+public:	
+	// Sets default values for this actor's properties
 	APhysicsWorldVRBall();
 
 	// Called when the game starts or when spawned
@@ -20,9 +20,6 @@ public:
 	// Called every frame
 	virtual void Tick( float DeltaSeconds ) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
-
-	
+    float RunningTime;	
 	
 };
