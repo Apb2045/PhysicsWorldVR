@@ -13,6 +13,7 @@ class PHYSICSWORLDVR_API APhysicsWorldVRGameMode : public AGameMode
 {
 	GENERATED_BODY()
 	
+    APhysicsWorldVRGameMode(const FObjectInitializer& ObjectInitializer);
 	
 	
 	
