@@ -5,4 +5,12 @@
 
 
 
+APhysicsWorldVRGameMode::APhysicsWorldVRGameMode(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {
+    //static ConstructorHelpers::FClassFinder<ACharacter> PlayerPawnBPClass(TEXT("Blueprint'/Game/BP_Character.BP_Character_C'"));
+    //if (PlayerPawnBPClass.Class != NULL)
+    //{
+     //  DefaultPawnClass = PlayerPawnBPClass.Class;
+    //}
+    
 
+}

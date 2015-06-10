@@ -12,7 +12,8 @@ UCLASS()
 class PHYSICSWORLDVR_API APhysicsWorldVRGameMode : public AGameMode
 {
 	GENERATED_BODY()
-	
+public:
+    APhysicsWorldVRGameMode(const FObjectInitializer& ObjectInitializer);
 	
 	
 	
