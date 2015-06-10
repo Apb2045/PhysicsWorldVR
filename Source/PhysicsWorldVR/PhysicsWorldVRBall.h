@@ -19,13 +19,9 @@ public:
 
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
-	
-	// Called every frame
-	//virtual void Tick( float DeltaSeconds ) override;
-
-    //float RunningTime;
+/*
     
 public:
     FORCEINLINE class UStaticMeshComponent* GetBall() const { return Ball; }
-	
+*/
 };
